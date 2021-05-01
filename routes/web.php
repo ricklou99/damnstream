@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('/latest-episode', [PostController::class, 'lepisode'])->name('posts.lepisode');
+Route::get('/latest-hentai', [PostController::class, 'lhentai'])->name('posts.lhentai');
 Route::get('/watch/{slug}', [PostController::class, 'episode'])->name('posts.show');
 Route::get('/subbed-hentai', [PostController::class, 'shentai'])->name('posts.shentai');
 Route::get('/dubbed-hentai', [PostController::class, 'dhentai'])->name('posts.dhentai');

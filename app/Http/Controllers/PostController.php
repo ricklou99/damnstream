@@ -13,13 +13,32 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
+
+        $eposts = $this->makeRequest('GET', 'home/episode');
+        $hposts = $this->makeRequest('GET', 'home/hentai');
+        return view('index', compact('eposts', 'hposts'));
+    }
+
+    public function lepisode(Request $request)
+    {
         $queryParams = [];
         if ($request->has('page')) {
             $queryParams = ['page' => $request->get('page')];
         }
 
         $posts = $this->makeRequest('GET', 'home/episode', $queryParams);
-        return view('index', compact('posts'));
+        return view('latest-episode', compact('posts'));
+    }
+
+    public function lhentai(Request $request)
+    {
+        $queryParams = [];
+        if ($request->has('page')) {
+            $queryParams = ['page' => $request->get('page')];
+        }
+
+        $posts = $this->makeRequest('GET', 'home/hentai', $queryParams);
+        return view('latest-hentai', compact('posts'));
     }
 
     public function episode(Request $request, $slug)
