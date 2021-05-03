@@ -46,7 +46,8 @@ class PostController extends Controller
 
         $post = $this->makeRequest('GET', 'episode/slug/' . $slug);
         return view('episode')
-            ->with('post', $post[0]);
+            ->with('post', $post->data[0])
+            ->with('po', $post);
     }
 
     public function shentai(Request $request)

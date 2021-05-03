@@ -27,7 +27,15 @@ Hentai
 </a>
 </div>
 <div class="space-x-2">
-</div>
+@if($po->prev_page_slug)
+                    <a class="px-3 py-1 rounded text-sm hover:bg-gray-500 bg-gray-700"
+                                             href="{{$po->prev_page_slug}}">Prev</a></li>
+                @endif
+@if($po->next_page_slug)
+                    <a class="px-3 py-1 rounded text-sm hover:bg-gray-500 bg-gray-700"
+                                             href="{{$po->next_page_slug}}">Next</a></li>
+                @endif
+            </div>
 </div>
 <div class="flex flex-wrap md:flex-nowrap mt-4 md:space-x-4">
 <div class="w-full">
